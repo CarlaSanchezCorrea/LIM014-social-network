@@ -1,7 +1,7 @@
 import MockFirebase from 'mock-cloud-firestore';
 import {
   addPost, orderPostbyTimeDesc, deletePost, createUser, getUser, editDescriptions, editPost,
-  showPostUserid,
+  showPostUserid, likePost,
 } from '../src/lib/firestore-controller.js';
 
 const fixtureData = {
@@ -68,17 +68,15 @@ describe('add new post', () => {
 });
 // Update edit post
 describe('update Post', () => {
-  it('Should it update edit post', (done) => editPost('001', 'post editado')
+  it('Should it update edit post', (done) => editPost('post_1', 'post editado')
     .then(() => {
       const callback = () => {
-        orderPostbyTimeDesc((userData) => {
-          const user = userData.data();
-          console.log(user);
-          expect(user.Description).toBe('post editado');
+        orderPostbyTimeDesc((user) => {
+          expect(user[0].post).toBe('post editado');
           done();
-        }, '002');
+        });
       };
-      orderPostbyTimeDesc(callback, '002');
+      orderPostbyTimeDesc(callback, 'post_1');
     }));
 });
 // Delete posts
@@ -95,13 +93,27 @@ describe('Delete post', () => {
 });
 // Filter only User's Post
 describe('Show just user.s post', () => {
-  it.skip('Should it show only user.s post', (done) => showPostUserid('001')
+  it('Should it show only user.s post', (done) => {
+    const data = (dataArray, uid) => {
+      expect(dataArray[0].id).toBe('post_1');
+      expect(dataArray[0].idUser).toBe('uid_001');
+      expect(uid).toBe('uid_001');
+      done();
+    };
+    showPostUserid(data, 'uid_001');
+  });
+});
+// Function like
+describe('Add like or dislike', () => {
+  it('Should it like post', (done) => likePost('post_1', '001')
     .then(() => {
-      const callback = (post) => {
-        const result = post.find((e) => e.id === '001');
-        expect(result.id).toBe('001');
-        done();
+      const callback = () => {
+        orderPostbyTimeDesc((user) => {
+          console.log(user);
+          expect(user[0].likes).toBe('001');
+          done();
+        });
       };
-      orderPostbyTimeDesc(callback);
+      orderPostbyTimeDesc(callback, 'post_1');
     }));
 });
