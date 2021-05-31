@@ -7,6 +7,7 @@ export const addPost = (textPost, id, mail) => firebase.firestore().collection('
     timePost: new Date().toLocaleString('GMT-0500'),
     likes: [],
   });
+
 export const editPost = (id, text) => firebase.firestore().collection('posts').doc(id).update({
   post: text,
   timePost: new Date(),
