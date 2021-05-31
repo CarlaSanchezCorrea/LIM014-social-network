@@ -1,5 +1,8 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost, orderPostbyTimeDesc, editPost } from './firestore-controller.js';
+import {
+  deletePost, orderPostbyTimeDesc, editPost, likePost,
+} from './firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
 // eslint-disable-next-line import/no-cycle
 import { notUserSignIn } from '../view/not-user-sign-in.js';
@@ -8,8 +11,8 @@ export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-export const setupPosts = (data, dataUser, templateInitialPage) => {
-  const postList = templateInitialPage.querySelector('.posts');
+export const setupPosts = (data, user, template) => {
+  const postList = template.querySelector('.posts');
   postList.innerHTML = '';
 
   if (data.length) {
@@ -19,9 +22,26 @@ export const setupPosts = (data, dataUser, templateInitialPage) => {
       const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
       const textPost = section.querySelector('#text-post');
 
-      if (dataUser.idUser === doc.idUser) {
+      // likes
+      const likes = section.querySelector('#btn-like');
+      likes.addEventListener('click', () => {
+        const result = doc.likes.indexOf(user);
+        if (result === -1) {
+          doc.likes.push(user);
+          likePost(doc.id, doc.likes);
+        } else {
+          doc.likes.splice(result, 1);
+          likePost(doc.id, doc.likes);
+        }
+      });
+
+      if (user === doc.idUser) {
         // botón eliminar post
-        const btnDeletePost = createAttributesButton('eliminar', 'btn-delete', doc.id);
+        const btnDeletePost = createAttributesButton(
+          'eliminar',
+          'btn-delete',
+          doc.id,
+        );
         section.appendChild(btnDeletePost);
         // obteniendo nuevos valores
         const templateModalValue = templateModal();
@@ -62,26 +82,16 @@ export const setupPosts = (data, dataUser, templateInitialPage) => {
         });
       }
     });
-    // añadir botón like
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
 };
+
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
+    // console.log(user)
     if (user) {
-      const dataUser = {
-        email: user.email,
-        idUser: user.uid,
-      };
-      orderPostbyTimeDesc('posts')
-        .onSnapshot((querySnapshot) => {
-          const output = [];
-          querySnapshot.forEach((doc) => {
-            output.push({ id: doc.id, ...doc.data() });
-          });
-          callback(output, dataUser);
-        });
+      orderPostbyTimeDesc(callback, user.uid);
     } else {
       const container = document.getElementById('container');
       container.innerHTML = '';
