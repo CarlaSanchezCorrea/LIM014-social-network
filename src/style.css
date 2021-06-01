@@ -755,6 +755,7 @@ border: 1px solid rgb(34,34,51);
   height:200px;
   margin-bottom:15px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .infoUser_data {
@@ -783,10 +784,6 @@ border: 1px solid rgb(34,34,51);
   border-top: 1px solid #000;
   border-left: 1px solid  #000;
   border-right: 1px solid  #000;
-}
-
-.position {
-  padding: 10px;
 }
 
 #ruta{
