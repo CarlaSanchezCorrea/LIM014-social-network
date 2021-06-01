@@ -1,8 +1,9 @@
 // Agrega un post
-export const addPost = (textPost, id, mail) => firebase.firestore().collection('posts')
+export const addPost = (textPost, id, mail, userImage) => firebase.firestore().collection('posts')
   .add({
     post: textPost,
     idUser: id,
+    userImage,
     email: mail,
     timePost: new Date().toLocaleString('GMT-0500'),
     likes: [],
@@ -22,17 +23,6 @@ export const editDescriptions = (id, text) => firebase.firestore().collection('u
   Description: text,
   timePost: new Date(),
 });
-
-// Agrega una Descripción
-// eslint-disable-next-line max-len
-// export const addDescription = (textPost, id, nickName) => firebase.firestore().collection('Descriptions')
-//   .add({
-//     description: textPost,
-//     idUser: id,
-//     Usuario: nickName,
-//     timePost: new Date().toLocaleDateString(),
-//   });
-
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = firebase.firestore().collection('users').doc(id).set({
