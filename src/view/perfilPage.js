@@ -10,12 +10,7 @@ import { currentUser } from '../lib/firebase-controller.js';
 export default () => {
   const templatePerfilPage = document.createElement('section');
   const viewPerfilPage = `
-    <!--nav>
-     <li id="inicio">Inicio</li>
-     <li id="signOut">Cerrar Sesión</li>
-    </nav--> 
-
-    <div class="tabs">
+   <div class="tabs">
     <div class="tabs__inner">
         <a class="tabs__item">
           <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
@@ -26,11 +21,9 @@ export default () => {
           <img data-feather="home" src="../img/menu/home.png"></img>
           <span class="tabs__tooltip">Inicio</span>
         </a>
-        <a class="tabs__item tabs__item--active" id="menu-perfil-page">
-          <div id="backgroung-img">
-            <img id="user-pic-initalPage" class="demo-avatar">
-          </div>
-          <span id="myPerfil"></span>
+        <a class="tabs__item tabs__item--active" id="menu-perfil">
+          <img id="user-pic-initalPage" class="demo-avataar">
+          <span id="myPerfil-Inital"></span>
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
         <a class="tabs__item" id="signOut">
@@ -39,37 +32,46 @@ export default () => {
         </a>
     </div>
   </div>
-
-
-
-    <article>
-    <img id="user-pic-initalPage" class="demo-avatar">
-    <h2 id="name"></h2>
-    <h2 id="user-name"></h2>
-    <textarea id="textareaDescription" name="publica" placeholder="Acerca de mi">
-    </textarea>
-    <button id="btnGuardar">Guardar</button>
-    <p id="descripcion"></p>
-    </article>
-
-    <article class = "create-post">
-      <h2>Publica tus recetas</h2>
-    <div class="img-textPost">
-      <svg height="60" width="80">
-        <circle cx="30" cy="30" r="25"/>
-      </svg>
-      <input type="text" id="textarea" placeholder="Comparte tus recetas">
-      </input>
+  
+  <div class="grid">
+    <div class="page_left">
+      <article class="infoUser">
+      <div class="portada">
+     <img class="portada" src ="../img/comida.jpg">
+      </img>
+      </div>
+        <div class="infoUser_data">
+          <img id="user-pic" class="demo-avataar">
+          <div style="margin-left:10px">
+              <h2 id="name"></h2>
+              <h2 id="user-name"></h2>
+          </div>
+        </div>
+       
+        <input id="textareaDescription" name="publica" placeholder="Acerca de mi">
+        </input>
+        <button id="btnGuardar">Guardar</button>
+        <p id="descripcion"></p>
+      </article>
+    
+      <article class = "create-post">
+        
+        <div class = "create-post-row">
+        <img class="demo-avataar user-pic-post"/>
+        
+          <h2>Publica tus recetas</h2>
+        </div>
+        <div class="img-textPost">
+        <textarea  id="textarea" placeholder="Comparte tus recetas"></textarea>
+          <div class="btn-post">
+           <button id="btn" class="btn-to-post-default">Compartir</button>
+          </div>
+      </article>
     </div>
-    <hr>
-    <div class="btn-post">
-      <a>🥗 Comida</a>
-      <a> 🍹 Bebida</a>
-      <button id="btn" class="btn-to-post-default">Compartir</button>
+    <div class="page_right">
+      <div class="posts"></div>
     </div>
-    </article>
-
-    <div class="posts"></div>
+  </div>
      `;
 
   templatePerfilPage.classList.add('position');
@@ -95,14 +97,6 @@ export default () => {
   //   }
   // });
   // unsubscribe(); // para desactivar el onsnapshot, el observador se quita
-  getUser(userID, (doc) => {
-    const user = doc.data();
-    if (user && user.Description) {
-      const description = user.Description;
-      const postDescription = document.getElementById('descripcion');
-      postDescription.textContent = description;
-    }
-  });
 
   const publicar = templatePerfilPage.querySelector('#btn');
   publicar.addEventListener('click', () => {
@@ -140,7 +134,7 @@ export default () => {
     if (userData.exists) {
       const user = userData.data();
       const name = user.Usuario;
-      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil');
+      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil-Inital');
 
       const separador = ' '; // un espacio en blanco
       const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
