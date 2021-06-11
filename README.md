@@ -15,10 +15,6 @@ Si no sabes que cocinar el día de hoy  visita I Chef y encuentra deliciosas com
 
 ![mobile 1](./src/img/Readme/Pantalla%20dos.PNG?raw=true)
 
-+ Pantalla Deskop
-![deskop](./src/img/Readme/pantalla%20tres.PNG?raw=true)
-
-![deskop 1](./src/img/Readme/pantalla%20cuatro.PNG?raw=true)
 
 ## 3. Historia de Usuario
 
