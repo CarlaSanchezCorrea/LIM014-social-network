@@ -1,4 +1,5 @@
 # Red Social: IChef 
+
 (っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )
 ***
 
@@ -7,7 +8,18 @@ IChef, es una red social creada para amantes de la cocina, esta plataforma permi
 Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comidas.
 
 ## 2. Prototipo
++ Link del Prototipo [Link del Prototipo](https://www.figma.com/file/0KXIDxtUXIlSKMp6zIB6WB/I-chef?node-id=202%3A3)
 
++ Pantalla mobile
+
+![mobile](./src/img/Readme/pantalla%20una.PNG?raw=true)
+
+![mobile 1](./src/img/Readme/Pantalla%20dos.PNG?raw=true)
+
++ Pantalla Deskop
+![deskop](./src/img/Readme/pantalla%20tres.PNG?raw=true)
+
+![deskop 1](./src/img/Readme/pantalla%20cuatro.PNG?raw=true)
 
 ## 3. Historia de Usuario
 
@@ -147,6 +159,3 @@ criterios mínimos de aceptación.\
   - El usuario podrá editar su información como: nombre.
   - El usuario podrá agregar una breve descripción sobre ella si lo desea.
   - El usuario podrá editar la descripción ingresada. 
-
-## 4. Consideraciones generales
-* Quiénes son los principales usuarios de producto.
