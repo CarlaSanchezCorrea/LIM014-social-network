@@ -17,6 +17,7 @@ export default () => {
     <img src="img/google.png" class="google" id="btn-google"><br />
     <p class="errorMail" id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
     <button class="btn-correo" id="btn-correo">Registrarse</button>
+    <p class="redirect">¿Ya eres miembro? <a href=#/SignIn><strong style="cursor: pointer">Iniciar sesión</strong></a></p>
     <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
    </article>
   </article>`;

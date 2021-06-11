@@ -15,6 +15,7 @@ export default () => {
     <p class="errorMail" id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
     <button class="btn-correo" id="btn-correo">Inicia Sesión</button>
     <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
+    <p class="redirect">¿Aún no estás en iChef? <a href=#/SignUp><strong style="cursor: pointer">Regístrate</strong></a></p>
    </article>
   </article>
 `;
