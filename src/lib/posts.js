@@ -85,7 +85,7 @@ export const setupPosts = (data, user, template) => {
       }
     });
   } else {
-    postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
+    postList.innerHTML = '<h4 class="text-white">Crea tu primer post de receta 🥗 Comida //🍹 Bebida</h4>';
   }
 };
 // callback = newFn

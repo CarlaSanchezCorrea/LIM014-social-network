@@ -10,7 +10,7 @@ import { currentUser } from '../lib/firebase-controller.js';
 export default () => {
   const templatePerfilPage = document.createElement('section');
   const viewPerfilPage = `
-   <div class="tabs">
+    <div class="tabs">
     <div class="tabs__inner">
         <a class="tabs__item">
           <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
@@ -21,8 +21,10 @@ export default () => {
           <img data-feather="home" src="../img/menu/home.png"></img>
           <span class="tabs__tooltip">Inicio</span>
         </a>
-        <a class="tabs__item tabs__item--active" id="menu-perfil">
-          <img id="user-pic-initalPage" class="demo-avataar">
+        <a class="tabs__item tabs__item--active" id="menu-perfil-page">
+          <div id="backgroung-img">
+            <img id="user-pic-initalPage" class="demo-avatar">
+          </div>
           <span id="myPerfil-Inital"></span>
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
@@ -36,38 +38,45 @@ export default () => {
   <div class="grid">
     <div class="page_left">
       <article class="infoUser">
-      <div class="portada">
-     <img class="portada" src ="../img/comida.jpg">
-      </img>
-      </div>
-        <div class="infoUser_data">
-          <img id="user-pic" class="demo-avataar">
-          <div style="margin-left:10px">
-              <h2 id="name"></h2>
+        <div>
+          <img class="portada" src ="../img/comida.jpg">
+        </div>
+          <div class="infoUser_data">
+            <img id="user-pic" class="demo-avataar">
+            <div style="margin-left:10px">
               <h2 id="user-name"></h2>
+            </div>
           </div>
-        </div>
-       
-        <input id="textareaDescription" name="publica" placeholder="Acerca de mi">
-        </input>
-        <button id="btnGuardar">Guardar</button>
-        <p id="descripcion"></p>
-      </article>
+
+          <section>
+              <div class="btn-post">
+                <span class="show-edit-description">Editar perfil</span> 
+            </div>
+            <div class="text-description-myself">
+              <input id="textareaDescription" placeholder="Acerca de mi">
+              </input>
+              <div class="btn-post">
+               <button id="cancel-edit-post" class="btn-to-post-default">Cancel</button>
+                <button id="btnGuardar" class="btn-to-post-default">Guardar</button>
+              </div>
+            </div>
+            <p id="descripcion"></p>
+         </section>
     
-      <article class = "create-post">
-        
-        <div class = "create-post-row">
-        <img class="demo-avataar user-pic-post"/>
-        
+        <article class = "create-post">
           <h2>Publica tus recetas</h2>
-        </div>
-        <div class="img-textPost">
-        <textarea  id="textarea" placeholder="Comparte tus recetas"></textarea>
+            <div class="img-textPost">
+            <div id="backgroung-img">
+              <img id="user-pic-initalPage" class="demo-avataar" src="" />
+            </div>
+              <input type="text" id="textarea" placeholder="Comparte tus recetas">
+              </input>
+            </div>
           <div class="btn-post">
-           <button id="btn" class="btn-to-post-default">Compartir</button>
+            <button id="btn" class="btn-to-post-default">Compartir</button>
           </div>
-      </article>
-    </div>
+        </article>
+      </div>
     <div class="page_right">
       <div class="posts"></div>
     </div>
@@ -81,11 +90,33 @@ export default () => {
   showPostUserid((data) => {
     setupPosts(data, userID, templatePerfilPage);
   }, userID);
+  const hiddenEditDescriptonText = templatePerfilPage.querySelector('.text-description-myself');
+  const buttonHiddenDescription = templatePerfilPage.querySelector('.show-edit-description');
+  buttonHiddenDescription.addEventListener('click', () => {
+    hiddenEditDescriptonText.style.display = 'block';
+  });
+  const buttonNoneDescription = templatePerfilPage.querySelector('#cancel-edit-post');
+  buttonNoneDescription.addEventListener('click', () => {
+    hiddenEditDescriptonText.style.display = 'none';
+  });
   const publicarDescripcion = templatePerfilPage.querySelector('#btnGuardar');
   const textDescription = templatePerfilPage.querySelector('#textareaDescription');
+  textDescription.addEventListener('input', () => {
+    if (textDescription.value !== '') {
+      publicarDescripcion.classList.remove('btn-to-post-default');
+      publicarDescripcion.classList.add('string-text-post');
+    } else {
+      publicarDescripcion.classList.remove('string-text-post');
+      publicarDescripcion.classList.add('btn-to-post-default');
+    }
+  });
   publicarDescripcion.addEventListener('click', () => {
     const user = currentUser();
     editDescriptions(user.uid, textDescription.value);
+    textDescription.value = '';
+    publicarDescripcion.classList.remove('string-text-post');
+    publicarDescripcion.classList.add('btn-to-post-default');
+    hiddenEditDescriptonText.style.display = 'none';
   });
   // const unsubscribe = firebase.firestore().collection('users').doc(userID).onSnapshot((doc) => {
   //   console.log(doc.data());

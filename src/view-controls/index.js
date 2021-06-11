@@ -39,12 +39,9 @@ const changeView = (route) => {
         if (userData.exists) {
           const user = userData.data();
           const displayName = user.Usuario;
-          const name = user.NombreCompleto;
-          const userNameComplete = document.getElementById('name');
           const userName = document.getElementById('user-name');
           const userDescripcion = document.getElementById('descripcion');
 
-          userNameComplete.textContent = name;
           userName.textContent = displayName;
           userDescripcion.textContent = user.Description;
           const userImage = document.getElementById('user-pic');

@@ -34,7 +34,7 @@ export default () => {
           <span class="tabs__tooltip">Inicio</span>
         </a>
         <a class="tabs__item" id="menu-perfil">
-          <img id="user-pic-initalPage" class="demo-avataar">
+          <img id="user-pic-initalPage" class="demo-avatar">
           <span id="myPerfil-Inital"></span>
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
@@ -48,7 +48,7 @@ export default () => {
   <article class = "create-post">
     <h2>Publica tus recetas</h2>
   <div class="img-textPost">
-  <img id="user-pic" class="demo-avataar" src="" />
+    <img id="user-pic" class="demo-avataar" src="" />
     <input type="text" id="textarea" placeholder="Comparte tus recetas">
     </input>
   </div>
