@@ -219,19 +219,22 @@ nav ul {
 }
 
 /*Post*/
+#create-post-perfil {
+  width: 95%;
+}
 .create-post {
-  /* background-color: rgb(43,2,0, 0.7); */
-  border: 3px solid rgb(34,34,51);
-  background-color:#F5EBDC;
+  background-color: rgb(43,2,0, 0.7);
+  /*border: 3px solid rgb(34,34,51);
+  background-color:#F5EBDC;*/
   border-radius: 20px;
-  width: 90%;
+  width: 40%;
   padding: 12px 16px 10px;
   margin: 30px 8px 10px 5px;
 }
 .create-post h2 {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  /* color: #F5EBDC; */
-  color:rgb(34,34,51);
+  color: #F5EBDC; 
+  /*color:rgb(34,34,51);*/
   margin: 0;
   font-size: 15px;
   padding-left: 10px;
@@ -259,8 +262,8 @@ nav ul {
   margin-left: 10px;
   outline: none;
   padding: 5px 15px 20px;
-  /* border: none; */
-  border: 1px solid rgb(34,34,51);
+  border: none; 
+  /*border: 1px solid rgb(34,34,51);*/
 }
 .btn-post {
   display: flex;

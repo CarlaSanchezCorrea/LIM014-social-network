@@ -63,7 +63,7 @@ export default () => {
             <p id="descripcion"></p>
          </section>
     
-        <article class = "create-post">
+        <article class = "create-post" id="create-post-perfil">
           <h2>Publica tus recetas</h2>
             <div class="img-textPost">
             <div id="backgroung-img">
@@ -73,6 +73,8 @@ export default () => {
               </input>
             </div>
           <div class="btn-post">
+            <a>🥗 Comida</a>
+            <a> 🍹 Bebida</a>
             <button id="btn" class="btn-to-post-default">Compartir</button>
           </div>
         </article>

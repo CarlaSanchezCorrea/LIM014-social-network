@@ -53,6 +53,8 @@ export default () => {
     </input>
   </div>
   <div class="btn-post">
+    <a>🥗 Comida</a>
+    <a> 🍹 Bebida</a>
     <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
