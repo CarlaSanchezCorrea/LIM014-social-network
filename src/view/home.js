@@ -72,8 +72,7 @@ export default () => {
     <article class="info-redirect-home-page">
       <h1 class="info-redirect-h1">Ingresa con una cuenta para acceder a miles de ideas</h1>
       <section id="info-redirect-home-page_section">
-        <img src="./img/negro.png"
-        class="logo-iChef">
+        <img src="./img/negro.png" class="logo-iChef">
         <h3>Te damos la bienvenida a <span>I CHEF</span></h3>
         <div class="info-container">
           <p>¿Buscas preparar como "cena fácil con pollo"?</p>
