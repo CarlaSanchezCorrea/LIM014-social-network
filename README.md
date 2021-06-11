@@ -13,7 +13,7 @@ Si no sabes que cocinar el día de hoy  visita I Chef y encuentra deliciosas com
 
 ![mobile](https://github.com/CarlaSanchezCorrea/LIM014-social-network/blob/main/Brown%20Glitter%20Desktop%20Wallpaper.gif?raw=true)
 
-![mobile 1](./src/img/Readme/Pantalla%20dos.PNG?raw=true)
+![mobile 1](https://github.com/CarlaSanchezCorrea/LIM014-social-network/blob/main/Brown%20Glitter%20Desktop%20Wallpaper.png)
 
 
 ## 3. Historia de Usuario
