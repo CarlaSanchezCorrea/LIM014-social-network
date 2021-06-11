@@ -51,7 +51,7 @@ export default () => {
       </div>
 
       <div class="logo-iChef-background">
-        <img src="./img/ichef.png">
+        <img src="./img/negro.png">
         <h1>I CHEF</h1>
       </div>  
       <div class="post-text-background">
