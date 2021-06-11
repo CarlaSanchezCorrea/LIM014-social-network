@@ -223,7 +223,7 @@ nav ul {
   width: 95%;
 }
 .create-post {
-  background-color: rgb(43,2,0, 0.7);
+  background-color: rgb(104, 72, 70);
   /*border: 3px solid rgb(34,34,51);
   background-color:#F5EBDC;*/
   border-radius: 20px;
@@ -478,9 +478,6 @@ hr {
 .button-mobile {
   display: none;
 }
-.post-text-background{
-  display: none;
-}
 .example-iChef {
   display: none;
   color: #fff;
@@ -658,15 +655,18 @@ hr {
 /* .page_right{
   background-color:rgb(218, 219, 216);
 } */
-.post{
-  display: grid;
-  grid-template-columns:1fr;
-  grid-gap:1em;
-  border:1px dashed #777;
-  height:300px;  
-}
 .container-post {
-margin: 30px;
+margin-bottom: 30px;
+width: 30%;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
+.posts {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
 .container-post .like-counter{
   text-align: center;
@@ -804,6 +804,9 @@ border: 1px solid rgb(34,34,51);
   border-left: 1px solid  #000;
   border-right: 1px solid  #000;
 }
+.post-row img {
+  width: 30px;
+}
 
 #ruta{
   margin-right: auto;
@@ -819,6 +822,12 @@ border: 1px solid rgb(34,34,51);
   display: flex;
   justify-content: center;
 }
+.position {
+  background-color:#ffffff;
+  background-image: radial-gradient(#e0dcf5 3px, transparent 3px);
+  background-size: 20px 20px;
+}
+
 /*********** footer ***********/
 footer {
   display: flex;

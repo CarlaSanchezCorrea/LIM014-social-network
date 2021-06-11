@@ -44,17 +44,15 @@ export const createAttributesButton = (textContentButton, classNameButton, docId
   btnPost.dataset.id = docId;
   return btnPost;
 };
-export const createButtonDelete = (textContentButton, classNameButton, docId) => {
+export const createButtonDelete = (classNameButton, docId) => {
   const btnPost = document.createElement('img');
-  // btnPost.textContent = textContentButton;
   btnPost.setAttribute('src', '../img/trash.png');
   btnPost.classList = classNameButton;
   btnPost.dataset.id = docId;
   return btnPost;
 };
-export const createButtonEdit = (textContentButton, classNameButton, docId) => {
+export const createButtonEdit = (classNameButton, docId) => {
   const btnPost = document.createElement('img');
-  // btnPost.textContent = textContentButton;
   btnPost.setAttribute('src', '../img/edit.png');
   btnPost.classList = classNameButton;
   btnPost.dataset.id = docId;
